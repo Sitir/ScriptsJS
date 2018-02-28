@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Pubsub</title>
+  
+  <script src="      <-- IMPORT JQUERY FIRST --->            " type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    var exports = this;
+    
+    (function($){
+    
+    // exports Events to get handlers 
+      exports.Events = {
+      
+      // bind dep use ->  .on(event, callback function) 
+        bind: function(ev, callback) {
+          var evs   = ev.split(" ");
+          
+          var calls = this._callbacks || (this._callbacks = {});
+
+          for (var i=0; i < evs.length; i++)
+          
+          
+            (this._callbacks[evs[i]] || (this._callbacks[evs[i]] = [])).push(callback);
+
+          return this;
+        },
+
+        trigger: function() {
+          var args = $.makeArray(arguments);
+          var ev   = args.shift();
+
+          var list, calls, i, l;
+          if (!(calls = this._callbacks)) return this;
+          if (!(list  = this._callbacks[ev])) return this;
+
+          for (i = 0, l = list.length; i < l; i++)
+            if (list[i].apply(this, args) === false)
+              return false;
+          return this;
+        }
+      };
+    
+    
+    // make sure to pass the Jquery
+    })(jQuery);
+  </script>
+  
+  <script type="text/javascript" charset="utf-8">
+  
+  //  Events are biding or on.() because bind is deprec. We use to inform user about changing in the interace very.
+  // JSX used the same system with the observale.
+  
+  
+  
+    Events.bind("hail", function(type){
+      alert("Wszystkiego najlepszego " + type)
+    });
+    
+    Events.trigger("hail", "użytkownicy");
+  </script>
+</head>
+<body>
+</body>
+</html>
