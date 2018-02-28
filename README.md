@@ -13,7 +13,8 @@
 >Config file for webpack <Version 2>.
 
 >Example how to automate work for simply project and put fews small parts of code in seperate files and at the end of creating you can just simply concat all files to the one.
->FILE:
+FILE:
+
 		-CSS
 		-HTML
 		-JS
