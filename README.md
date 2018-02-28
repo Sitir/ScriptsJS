@@ -22,3 +22,9 @@ FILE:
 
 
 All instructions are in the files just downloaded and use.
+
+
+
+#### Publish Subscribe
+
+(readme.md)[https://github.com/patrka54/ScriptsJS/blob/master/PubSub/PubSubs.md]
